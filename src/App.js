@@ -4,11 +4,15 @@ import { Route } from "react-router-dom/cjs/react-router-dom.min";
 import AllQuotes from "./pages/AllQuotes";
 import QuoteDetail from "./pages/QuoteDetail";
 import NewQuote from "./pages/NewQuote";
+import Layout from "./components/layout/Layout";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <Switch>
 
+    <Layout>
+
+      <Switch>
       <Route path='/' exact>
         <Redirect to='/quotes'/>
       </Route>
@@ -25,9 +29,12 @@ function App() {
         <NewQuote/>
       </Route>
 
+      <Route path='*'>
+        <NotFound/>
+      </Route>
 
     </Switch>
-    
+    </Layout>
 
   );
 }
